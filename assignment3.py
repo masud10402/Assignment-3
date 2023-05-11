@@ -22,16 +22,14 @@ import warnings
 warnings.filterwarnings('ignore')
 
 
-
 # reading function
 def get_file():
-    
     """
     This function will read the dataframe and return it. It accepts no argument.
     """
-    
+
     df = pd.read_csv("data.csv")
-    
+
     return df
 
 
@@ -186,8 +184,8 @@ def fit_model_gdp(df, country):
     china['Year'] = pd.to_numeric(china['Year'])
     china["GDP"] = pd.to_numeric(china["GDP"])
 
-    
     # define a function to calculate exponential function
+
     def exponential(t, n0, g):
         """Calculates exponential function with scale factor n0 and growth rate g."""
 
@@ -284,8 +282,8 @@ def fit_model_forest(df, country):
     china['Year'] = pd.to_numeric(china['Year'])
     china["Forest"] = pd.to_numeric(china["Forest"])
 
-
     # define a function to calculate exponential function
+
     def exponential(t, n0, g):
         """Calculates exponential function with scale factor n0 and growth rate g."""
 
@@ -345,12 +343,14 @@ def fit_model_forest(df, country):
     return  # function finishes with return
 
 
-# call the read function
+# call the get_file function
 df = get_file()
 
 # call plot_cluster function
 plot_cluster(df)
 
+# I have chose three countries cluster. Bangladesh and Austria from cluster0 and China from cluster5.
+# We will create model fitting data using curve_fit for these three countries.
 # call fit model gdp fucntion
 fit_model_gdp(df, 'China')
 fit_model_gdp(df, 'Bangladesh')
